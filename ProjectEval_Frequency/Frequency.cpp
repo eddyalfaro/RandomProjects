@@ -71,9 +71,9 @@ int main(){
         cumFreq += _frequency.get(i);
 
         if (i == _limits.lenght - 2)
-                printf("| \t[%4.2f , %4.2f] \t|   %.2f   |   %.0f  |   %.0f   |   %.2f   |   %.2f   |   %.2f   |\n", _limits.get(i), _limits.get(i + 1), (_limits.get(i)+_limits.get(i + 1))/2, 
+                printf("| \t[%4.2f , %4.2f] \t|   %.4f   |   %.0f  |   %.0f   |   %.4f   |   %.4f   |   %.4f   |\n", _limits.get(i), _limits.get(i + 1), (_limits.get(i)+_limits.get(i + 1))/2, 
             _frequency.get(i), cumFreq, _relFreq.get(i) * 100, cum, decum);
-        else printf("| \t[%4.2f , %4.2f) \t|   %.2f   |   %.0f  |   %.0f   |   %.2f   |   %.2f   |   %.2f   |\n", _limits.get(i), _limits.get(i + 1), (_limits.get(i)+_limits.get(i + 1))/2, 
+        else printf("| \t[%4.2f , %4.2f) \t|   %.4f   |   %.0f  |   %.0f   |   %.4f   |   %.4f   |   %.4f   |\n", _limits.get(i), _limits.get(i + 1), (_limits.get(i)+_limits.get(i + 1))/2, 
             _frequency.get(i), cumFreq, _relFreq.get(i) * 100, cum, decum);
     }
 
@@ -89,7 +89,7 @@ int main(){
         decum -= _relFreq.get(i);
         cumFreq += _frequency.get(i);
 
-        printf("%4.2f , %4.2f,   %.2f  ,   %.0f  ,  %.0f  ,   %.2f   ,  %.2f   ,  %.2f \n", _limits.get(i), _limits.get(i + 1), (_limits.get(i)+_limits.get(i + 1))/2, 
+        printf("%4.2f , %4.2f,   %.4f  ,   %.0f  ,  %.0f  ,   %.4f   ,  %.4f   ,  %.4f \n", _limits.get(i), _limits.get(i + 1), (_limits.get(i)+_limits.get(i + 1))/2, 
             _frequency.get(i), cumFreq, _relFreq.get(i), cum, decum);
     }
 
@@ -116,8 +116,8 @@ int main(){
 
     float sum = 0;
     for (int i = 0; i < _copy->lenght; i++) sum += _copy->get(i);
-    printf("Mean of sample: %.2f Mstb\n", sum/_copy->lenght);
-    printf("Median of sample: %.2f Mstb\n", _copy->get(_copy->lenght/2));
+    printf("Mean of sample: %.4f Mstb\n", sum/_copy->lenght);
+    printf("Median of sample: %.4f Mstb\n", _copy->get(_copy->lenght/2));
 
     OverArray<float> _val;
     OverArray<int> _rep;
@@ -165,14 +165,14 @@ int main(){
     _var = _var / _data->lenght;
     float _sd = sqrt(_var);
 
-    printf("Variance of the Sample: %.2f MStb^2\n", _var);
-    printf("Standard Deviation of the Sample: +/- %.2f MStb\n", _sd);
-    printf("Coefficient of variation of the Sample: %.2f\n", 100 * _sd/_mean);
+    printf("Variance of the Sample: %.4f MStb^2\n", _var);
+    printf("Standard Deviation of the Sample: +/- %.4f MStb\n", _sd);
+    printf("Coefficient of variation of the Sample: %.4f\n", 100 * _sd/_mean);
 
     cout << endl;
-    printf("Geometric Mean of Sample: %.2f MStb\n", pow(10.0, _geoSum/_data->lenght));
-    printf("Harmonic mean of sample: %.2f MStb\n", _data->lenght/_harSum);
-    printf("Quadratic mean of sample: %.2f MStb\n", sqrt(_quaSum/_data->lenght) );
+    printf("Geometric Mean of Sample: %.4f MStb\n", pow(10.0, _geoSum/_data->lenght));
+    printf("Harmonic mean of sample: %.4f MStb\n", _data->lenght/_harSum);
+    printf("Quadratic mean of sample: %.4f MStb\n", sqrt(_quaSum/_data->lenght) );
 
     cout << endl;
     cout << "---Problem 2.36--- GROUPED DATA" << endl;
@@ -197,18 +197,18 @@ int main(){
     float _Ll = (_limits.get(_ulMedian - 1) + _limits.get(_ulMedian))/2;
 
     float _median = (0.5 - (cum - _relFreq.get(_ulMedian))) * (_Ul - _Ll) / (_relFreq.get(_ulMedian)) + _Ll;
-    printf("Mean of Sample: %.2f Mstb\n", sum);
-    printf("Mode of Sample: %.2f MStb\n", (_limits.get(_maxFreq) + _limits.get(_maxFreq + 1))/2);
-    printf("Median of Sample: %.2f MStb\n", _median);
+    printf("Mean of Sample: %.4f Mstb\n", sum);
+    printf("Mode of Sample: %.4f MStb\n", (_limits.get(_maxFreq) + _limits.get(_maxFreq + 1))/2);
+    printf("Median of Sample: %.4f MStb\n", _median);
 
     cout << endl;
-    printf("Variance of the Sample: %.2f MStb^2\n", _var);
-    printf("Standard Deviation of the Sample: +/- %.2f MStb\n", _sd);
-    printf("Coefficient of variation of the Sample: %.2f\n", 100 * _sd/_mean);
+    printf("Variance of the Sample: %.4f MStb^2\n", _var);
+    printf("Standard Deviation of the Sample: +/- %.4f MStb\n", _sd);
+    printf("Coefficient of variation of the Sample: %.4f\n", 100 * _sd/_mean);
 
     cout << endl;
-    printf("Geometric Mean of Sample: %.2f MStb\n", pow(10.0, _geoSum));
-    printf("Harmonic mean of sample: %.2f MStb\n", 1/_harSum);
+    printf("Geometric Mean of Sample: %.4f MStb\n", pow(10.0, _geoSum));
+    printf("Harmonic mean of sample: %.4f MStb\n", 1/_harSum);
 
     delete _data;
     delete _copy;
